@@ -12,7 +12,7 @@ const fileUrlFromReq = (req, filename) => {
   if (!filename) return null;
   const host = req.get("host");
   const protocol = req.protocol;
-  return `${protocol}://${host}/uploads/${encodeURIComponent(filename)}`;
+  return `${protocol}://${host}/api/uploads/${encodeURIComponent(filename)}`;
 };
 
 // GET /api/services
@@ -26,7 +26,7 @@ export const getServices = async (req, res) => {
         s.img = img;
       } else if (img) {
         const filename = path.basename(img);
-        s.img = `${req.protocol}://${req.get("host")}/uploads/${encodeURIComponent(filename)}`;
+        s.img = `${req.protocol}://${req.get("host")}/api/uploads/${encodeURIComponent(filename)}`;
       } else {
         s.img = "";
       }

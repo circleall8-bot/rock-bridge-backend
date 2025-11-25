@@ -7,7 +7,7 @@ const UPLOAD_DIR = path.join(process.cwd(), "uploads", "media");
 
 const fileUrlFromReq = (req, filename) => {
   if (!filename) return null;
-  return `${req.protocol}://${req.get("host")}/uploads/media/${encodeURIComponent(filename)}`;
+  return `${req.protocol}://${req.get("host")}/api/uploads/media/${encodeURIComponent(filename)}`;
 };
 
 // GET /api/media
@@ -20,7 +20,7 @@ export const getMedia = async (req, res) => {
         m.mediaUrl = url;
       } else if (url) {
         const filename = path.basename(url);
-        m.mediaUrl = `${req.protocol}://${req.get("host")}/uploads/media/${encodeURIComponent(filename)}`;
+        m.mediaUrl = `${req.protocol}://${req.get("host")}/api/uploads/media/${encodeURIComponent(filename)}`;
       } else {
         m.mediaUrl = "";
       }

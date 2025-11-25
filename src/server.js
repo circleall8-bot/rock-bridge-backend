@@ -6,7 +6,6 @@ import cors from "cors";
 import AuthRoutes from "./routes/AuthRoutes.js";
 import servicesRouter from "./routes/servicesRouter.js";
 import mediaRouter from "./routes/mediaRouter.js";
-import getOfferRouter from "./routes/quoteRouter.js";
 import quoteRouter from "./routes/quoteRouter.js";
 import path from "path";
 
@@ -29,10 +28,10 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 connectDB();
 
 
-app.use("/api/auth", AuthRoutes);
-app.use("/api/services", servicesRouter);
-app.use("/api/media", mediaRouter);
-app.use("/api/quotes", quoteRouter);
+app.use("/auth", AuthRoutes);
+app.use("/services", servicesRouter);
+app.use("/media", mediaRouter);
+app.use("/quotes", quoteRouter);
 
 app.get("/", (req, res) => res.send("Hello, Modular Backend!"));
 

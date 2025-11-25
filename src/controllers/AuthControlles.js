@@ -121,7 +121,7 @@ export const forgotPassword = async (req, res) => {
     user.resetOTPExpires = expiry;
     await user.save();
 
-    const resetUrl = `${process.env.FRONTEND_URL}/resetpassword/${otp}`;
+    const resetUrl = `https://rockbridge.store/resetpassword/${otp}`;
 
     await sendEmail(
       email,
